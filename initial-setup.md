@@ -28,6 +28,8 @@ In some circumstances, the archetypes are installed but not cataloged and hence 
 
 ## Embedded Mode {#embedded-mode}
 
+We will be creating a new application based on one of the archetypes we installed in the last section. To that we will use the JBoss Developer studio
+
 Using **JBoss Developer Studio **\(JBDS\) menu:
 
 1. Choose File 🡒 New 🡒 Other 🡒 Maven 🡒 Maven Project and click **Next** two times
@@ -65,6 +67,8 @@ Download the JDG server binary from the either the [Customer Portal](https://acc
    # Then shutdown the JDG instance 
    [standalone@127.0.0.1:9990 /] shutdown
    ```
+
+
 
 Using **JBoss Developer Studio **\(JBDS\) menu:
 
