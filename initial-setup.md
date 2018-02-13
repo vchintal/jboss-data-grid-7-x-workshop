@@ -16,7 +16,7 @@ Git clone the repo [https://github.com/vchintal/jboss-middleware-archetypes.git]
 
 Follow the instructions below to further run setup instructions based on the operational mode of your choice.
 
-### Catalogging the Archetypes
+### Cataloging the Archetypes
 
 In some circumstances, the archetypes are installed but not cataloged and hence the JBoss Developer Studio \(JBDS\) cannot find them. If JBDS cannot find the archetypes, you cannot create a project from them using it. So here is some workaround:
 
