@@ -1,4 +1,4 @@
-# JBoss Data Grid 7.x Workshop
+# JBoss Data Grid 7.x Workshop {#introduction}
 
 JBoss Data Grid \(JDG in short\) is an In-Memory Enterprise Caching solution from Red Hat, Inc. JDG is :
 
