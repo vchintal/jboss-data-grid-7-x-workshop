@@ -28,14 +28,14 @@ In some circumstances, the archetypes are installed but not cataloged and hence 
 
 ## Embedded Mode {#embedded-mode}
 
-We will be creating a new application based on one of the archetypes we installed in the last section. To that we will use the JBoss Developer studio
+We will be creating a new application based on one of the archetypes we installed in the last section. To that we will use the JBoss Developer studio.
 
 Using **JBoss Developer Studio **\(JBDS\) menu:
 
-1. Choose File 🡒 New 🡒 Other 🡒 Maven 🡒 Maven Project and click **Next** two times
+1. Choose File 🡒 New 🡒 Other 🡒 Maven 🡒 Maven Project and click Next two times
 2. In the **Filter** type in `org.everythingjboss.mw` and ensure that **Include snapshot archetypes ** checkbox is selected
-3. Select the **infinispan-embedded-archetype** and click **Next**
-4. Fill in the groupId, artifactId and version for your new project and click on **Finish**
+3. Select the **infinispan-embedded-archetype** and click Next
+4. Fill in the groupId, artifactId and version for your new project and click on Finish
 5. Right click on the only Java class name, **JDGConsoleApp**, in the package explorer and click Run As 🡒 Java Application
 6. If the execution in \#5 didn't fail for any reason, then the project worked. Your instructor will help you set the expectation around the output
 
@@ -68,16 +68,24 @@ Download the JDG server binary from the either the [Customer Portal](https://acc
    [standalone@127.0.0.1:9990 /] shutdown
    ```
 
-
+### Create a new JDG Client app
 
 Using **JBoss Developer Studio **\(JBDS\) menu:
 
-1. Choose File 🡒 New 🡒 Other 🡒 Maven 🡒 Maven Project and click **Next** two times
+1. Choose File 🡒 New 🡒 Other 🡒 Maven 🡒 Maven Project and click Next two times
 2. In the **Filter** type in `org.everythingjboss.mw` and ensure that **Include snapshot archetypes ** checkbox is selected
-3. Select the **infinispan-server-client-archetype** and click **Next**
-4. Fill in the groupId, artifactId and version for your new project and click on **Finish**
+3. Select the **infinispan-server-client-archetype** and click Next
+4. Fill in the groupId, artifactId and version for your new project and click on Finish
 5. Right click on the only Java class name, **JDGConsoleApp**, in the package explorer and click Run As 🡒 Java Application
-6. If the execution in \#5 didn't fail for any reason, then the project worked. Your instructor will help you set the expectation around the output
+6. If the execution in \#5 didn't fail for any reason, then the project setup worked. Your instructor will help you set the expectation around the output
+
+### Run the client app
+
+For the client app to be successful we must test against an running server, so let's follow the steps below in order to run the client application:
+
+1. In the project folder, using command-line, ensure that the **JDG\_HOME** environment variable is set as shown above and run the command : `mvn wildfly:start` to start the JDG server
+2. Once the above command finishes, run the Java main class **JDGRemoteClientConsoleApp** either from the JBDS by right-clicking on its name in package explorer and clicking Run As 🡒 Java Application or by running the command `mvn compile exec:exec` in the project's root folder.
+3. If the command went thru without exceptions, then the project setup worked. Your instructor will help you set the expectation around the output
 
 
 
