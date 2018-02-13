@@ -10,9 +10,9 @@ JBoss Data Grid \(JDG in short\) is an In-Memory Enterprise Caching solution fro
 * Distributed execution of tasks \(such a Map/Reduce\) over cluster content ensuring the tasks are migrated and executed on JDG instances where the data resides
 * and much more ...
 
-With this workshop you will gain hands-on experience developing applications which use **JDG** for their caching needs.
+With this workshop you will gain hands-on experience developing applications which use **JDG** for its caching needs. This workshop covers most of the common and major features of **JDG**,  however it doesn't cover all of them and the content can change without notice.
 
-## Workshop Agenda
+## Workshop Agenda {#workshop-agenda}
 
 1. Platform readiness check 
 2. Initial setup 
