@@ -13,7 +13,7 @@ To work on this lab, either use the project setup during the Initial Setup or cr
 
 Open up the only Java main class in the project **JDGConsoleApp** and depending on how you are instantiating the CacheManager follow one of the two approachs show below.
 
-### Programatically
+#### Programatically
 
 Copy-Paste the entire definition of the configuration and overwrite the one in the class file
 
@@ -37,11 +37,12 @@ And ensure that the cacheManager definition looks like the line below
 EmbeddedCacheManager cacheManager = new DefaultCacheManager("infinispan.xml");
 ```
 
-### Declaratively
+#### Declaratively
 
 Open up the `infinispan.xml` file in the `src/main/resources` folder and overwrite it completely with the following XML snippet
 
 ```xml
+<?xml version = "1.0"?>
 <infinispan xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="urn:infinispan:config:8.2 http://www.infinispan.org/schemas/infinispan-config-8.2.xsd"
     xmlns="urn:infinispan:config:8.2">
@@ -113,7 +114,7 @@ Follow the steps below to setup the project further:
 
 ### Prepare the main class and run it
 
-The steps for preparing the main class are similar to that of this [section](/eviction-and-expiration.md#rest-of-the-code-and-execution). For the actual code in case you decided to cheat, use the following :
+The steps for preparing the main class are similar to that of this [section](/eviction-and-expiration.md#rest-of-the-code-and-execution). For the actual code in case you decided to cheat, use the following and place the code soon after the cacheManager definition:
 
 ```java
 RemoteCache<String, String> remoteCache = cacheManager.getCache("boundedCache");
