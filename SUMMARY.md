@@ -12,4 +12,6 @@
   * [Embedded Mode](clustering.md#embedded-mode)
   * [Client-Server Mode](clustering.md#client-server-mode)
 * [Listeners/Notification](listeners-notification.md)
+  * [Embedded Mode](listeners-notification.md#embedded-mode)
+  * [Client-Server Mode](listeners-notification.md#client-server-mode)
 
