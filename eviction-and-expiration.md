@@ -34,7 +34,7 @@ Configuration configuration = new ConfigurationBuilder()
 And ensure that the cacheManager definition looks like the line below
 
 ```java
-EmbeddedCacheManager cacheManager = new DefaultCacheManager("infinispan.xml");
+EmbeddedCacheManager cacheManager = new DefaultCacheManager(configuration);
 ```
 
 #### Declaratively
@@ -44,8 +44,8 @@ Open up the `infinispan.xml` file in the `src/main/resources` folder and overwri
 ```xml
 <?xml version = "1.0"?>
 <infinispan xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="urn:infinispan:config:8.2 http://www.infinispan.org/schemas/infinispan-config-8.2.xsd"
-    xmlns="urn:infinispan:config:8.2">
+    xsi:schemaLocation="urn:infinispan:config:8.4 http://www.infinispan.org/schemas/infinispan-config-8.4.xsd"
+    xmlns="urn:infinispan:config:8.4">
     <cache-container default-cache="default">
         <local-cache-configuration name="local">
             <eviction type="COUNT" size="50" strategy="LIRS" />

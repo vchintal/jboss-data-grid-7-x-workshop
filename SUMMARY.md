@@ -8,4 +8,7 @@
 * [Eviction and Expiration](eviction-and-expiration.md)
   * [Embedded Mode](eviction-and-expiration.md#embedded-mode)
   * [Client-Server Mode](eviction-and-expiration.md#client-server-mode)
+* [Clustering](clustering.md)
+  * [Embedded Mode](clustering.md#embedded-mode)
+  * [Client-Server Mode](clustering.md#client-server-mode)
 
