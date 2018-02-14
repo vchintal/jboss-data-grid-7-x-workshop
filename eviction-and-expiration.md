@@ -9,6 +9,8 @@ In this section, we will see :
 
 To work on this lab, either use the project setup during the Initial Setup or create a new project based on the same **infinispan-embedded-archetype** archetype.
 
+### Prepare the main class and run it
+
 Open up the only Java main class in the project **JDGConsoleApp** and depending on how you are instantiating the CacheManager follow one of the two approachs show below.
 
 ### Programatically
@@ -59,7 +61,7 @@ And ensure that the cacheManager definition looks like the line below
 EmbeddedCacheManager cacheManager = new DefaultCacheManager("infinispan.xml");
 ```
 
-### Rest of the code and execution
+### Rest of the code and execution {#rest-of-the-code-and-execution}
 
 Now that you have the cache manager configuration is in-place, all you need to do soon after the cacheManager definition is to add lines of code that
 
@@ -95,9 +97,37 @@ To work on this lab, either use the project setup during the Initial Setup or cr
 
 Follow the steps below to setup the project further:
 
+### Setup the JDG server in Domain mode
+
 1. Create a new file `commands.cli` in `src/main/resources` folder and paste the contents as shown below:
+   ```
+   /profile=clustered/subsystem=datagrid-infinispan/cache-container=clustered/configurations=CONFIGURATIONS/local-cache-configuration=bounded:add()
+   /profile=clustered/subsystem=datagrid-infinispan/cache-container=clustered/configurations=CONFIGURATIONS/local-cache-configuration=bounded/eviction=EVICTION:add(size=50,strategy=LRU,type=COUNT)
+   /profile=clustered/subsystem=datagrid-infinispan/cache-container=clustered/configurations=CONFIGURATIONS/local-cache-configuration=bounded/expiration=EXPIRATION:add(interval=100,lifespan=10000)
+   /profile=clustered/subsystem=datagrid-infinispan/cache-container=clustered/local-cache=boundedCache:add(configuration=bounded)
+   reload --host=master
+   ```
 2. Ensure that no JDG is running with `jps` and run the command `mvn wildfly:run` in the root of the project
 3. Run the command `mvn wildfly:execute-commands` to execute the CLI commands we placed in the file
+4. Now leave the server running
+
+### Prepare the main class and run it
+
+The steps for preparing the main class are similar to that of this [section](/eviction-and-expiration.md#rest-of-the-code-and-execution). For the actual code in case you decided to cheat, use the following :
+
+```java
+RemoteCache<String, String> remoteCache = cacheManager.getCache("boundedCache");
+
+IntStream.rangeClosed(1, 100) .parallel().forEach(i -> remoteCache.put("key" + i, "value" + i));
+
+logger.info("The size of the cache before expiration is : {}", remoteCache.size());
+
+// Sleep beyond the lifespan of cache entries
+Thread.sleep(11000);
+
+logger.info("The size of the cache after expiration is : {}", remoteCache.size());
+cacheManager.stop();
+```
 
 
 
