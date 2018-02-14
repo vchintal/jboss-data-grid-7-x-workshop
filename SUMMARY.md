@@ -14,4 +14,7 @@
 * [Listeners/Notification](listeners-notification.md)
   * [Embedded Mode](listeners-notification.md#embedded-mode)
   * [Client-Server Mode](listeners-notification.md#client-server-mode)
+* [Persistence](persistence.md)
+  * [Embedded Mode](persistence.md#embedded-mode)
+  * [Client-Server Mode](persistence.md#client-server-mode)
 

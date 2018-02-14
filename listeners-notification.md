@@ -1,12 +1,27 @@
 # Listeners and Notification
 
-In this section we will see how to attach a listener class to listen to cache and/or cacheManager events .
+In this section we will see how to attach a listener class to listen to cache and/or cacheManager events. Visit here for [additional/official documentation](https://access.redhat.com/documentation/en-us/red_hat_jboss_data_grid/7.1/html-single/developer_guide/#the_notification_listener_api) on Listeners and Events .
 
 ## Embedded Mode {#embedded-mode}
 
 To work on this lab, either use the project setup during the Initial Setup or create a new project based on the same **infinispan-embedded-archetype ** archetype.
 
 Testing listening of cache/cacheManager events cannot with done easily with simple code as you would have to listen and at the same time need another process put entries into the cache. Also, in Embedded mode the listening of events happens locally, that is, the listener only captures the updates happening to the local data container.
+
+In our lab we will listen to both kind of events:
+
+1. Cluster view \(Cache Manager\) events that let us know if a node joined or left the cluster
+2. Entries added \(Cache\) event, that lets us know what entries got added to the cache
+
+Below is the way one can attach a listener to a cache or to a cacheManager 
+
+```
+// Add listener to a cache 
+cache.addListener(new ClusterListener());
+
+// Add a listener to a cacheManager
+cacheManager.addListener(new ClusterListener());
+```
 
 To make things easy, we will provide you with the exact code to put in
 
@@ -180,7 +195,7 @@ public class JDGRemoteClientConsoleApp {
     public static void main(String[] args) throws IOException, InterruptedException {
         Configuration configuration = new ConfigurationBuilder().build();
         CountDownLatch cdl = new CountDownLatch(1);
-        
+
         RemoteCacheManager cacheManager = new RemoteCacheManager(configuration);
         RemoteCache<String, String> remoteCache = cacheManager.getCache("listenerCache");
         remoteCache.addClientListener(new ClusteredClientListener());
@@ -200,7 +215,7 @@ import org.slf4j.LoggerFactory;
 @ClientListener
 public class ClusteredClientListener {
     private static final Logger logger =  LoggerFactory.getLogger(ClusteredClientListener.class);
-    
+
     @ClientCacheEntryCreated
     public void cacheEntryCreated(ClientCacheEntryCreatedEvent<String> event) {
         logger.info("Cache Entry created with key " + event.getKey());
