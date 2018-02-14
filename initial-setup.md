@@ -41,6 +41,8 @@ Using **JBoss Developer Studio **\(JBDS\) menu:
 
 ## Client-Server Mode {#client-server-mode}
 
+We will be creating a new JDG \(server\) client application based on one of the archetypes we installed in the last section. But before could run the application we need to setup the JDG server. Follow the steps shown below in order to finish the setup.
+
 ### Download/Install the JDG server
 
 Download the JDG server binary from the either the [Customer Portal](https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?product=data.grid&downloadType=distributions) or from [developers.redhat.com](https://developers.redhat.com/download-manager/file/jboss-datagrid-7.1.0-server.zip)
