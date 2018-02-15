@@ -17,4 +17,7 @@
 * [Persistence](persistence.md)
   * [Embedded Mode](persistence.md#embedded-mode)
   * [Client-Server Mode](persistence.md#client-server-mode)
+* [Security](security.md)
+  * [Embedded Mode](security.md#embedded-mode)
+  * [Client-Server Mode](security.md#client-server-mode)
 
