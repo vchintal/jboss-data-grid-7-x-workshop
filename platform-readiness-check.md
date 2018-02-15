@@ -6,7 +6,7 @@
 
   * On Linux \(feel free to put this in your .bashrc or .kshrc\) this could be done with the following command:
 
-    ```
+    ```bash
     # Shown as an example, please use the right JDK installation path
     export JAVA_HOME=/usr/java/jdk1.8.0_144
     ```
@@ -20,7 +20,7 @@
 
   * On Linux \(feel free to put this in your .bashrc or .kshrc\) :
 
-    ```
+    ```bash
     export PATH=$JAVA_HOME/bin:$PATH
     ```
 
@@ -43,7 +43,7 @@
     export M2_HOME=/usr/share/maven
     ```
 
-  * On Windows, follow the same steps as for JAVA_\_\_HOME and this time use the varibale_ _M2_\_\_HOME and set value to the maven's installed path
+  * On Windows, follow the same steps as for JAVA_\_\_HOME and this time use the varibale_ \_M2_\_\_HOME and set value to the maven's installed path
 
 * `bin` folder of Maven's home \(M2\_HOME\) is on the path:
 
