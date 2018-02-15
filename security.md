@@ -159,11 +159,9 @@ The steps for preparing the main class \(JDGRemoteClientConsoleApp.java\) is pre
       admin=admin
       ```
 
-4. Restart the JDG server after your updates and then continue to update the main class such that
+4. Restart the JDG server after your updates and then continue to update the main class such that you get a handle on the `secureCache` and run program by pumping in several entries into the cache
 
-   1. You get a handle on the `secureCache`
-   2. Pump in several entries into it
-   3. Try playing with different types of username/password in the code for the CacheManager configuration to see the behavior
+5. Try changing the username/password in the code for the CacheManager configuration to see the behavior of the client execution
 
 
 
