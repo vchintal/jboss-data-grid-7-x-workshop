@@ -13,7 +13,7 @@ In this lab we will try to different combination of cache configuration invoving
 
 ## Embedded Mode
 
-To work on this lab, either use the project setup during the Initial Setup or create a new project based on the same ** infinispan-embedded-archetype**archetype.
+To work on this lab, either use the project setup during the Initial Setup or create a new project based on the same ** infinispan-embedded-archetype ** archetype.
 
 As a first step lets alter the way in which the cache is configured. As before it depends on which approach we take, programmatic or declarative.
 
@@ -109,7 +109,7 @@ Follow the steps below to setup the project further:
 
 ### Prepare the main class and run it {#prepare-the-main-class-and-run-it}
 
-The steps for preparing the main class is pretty straighforward: 
+The steps for preparing the main class is pretty straighforward:
 
 1. Get handle on each of the three above mentioned caches 
 2. Put 10500 entries into each 
@@ -136,7 +136,7 @@ for (String cacheName : cacheNames) {
 * Eviction but no Passivation  - There will be 10000 entries in the `persistentCacheEviction`  and 10500 entries stored in the store
 * Eviction with Passivation  - There will be 10000 entries in the `persistentPassivatedCache` and the rest \(mutually exclusive set\) 500 in the store
 
-#### Where to note the size of the store\(s\) ? 
+#### Where to note the size of the store\(s\) ?
 
 Navigate to the folders \(if you have only two servers up\) to find all the .dat files. Their size gives you an approximate feel for how many entries are store in it.
 
