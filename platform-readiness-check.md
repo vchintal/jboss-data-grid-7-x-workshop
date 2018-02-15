@@ -13,8 +13,8 @@
 
   * On Windows
 
-    * Search for _**Environment Variables**_ from the Desktop. If that cannot be done, navigate to Control Panel 🡒 System and Security 🡒 System 🡒 \(click on\) Advanced System Settings 🡒 Advanced \(tab\) 🡒 \(click on\) Environment Variables 
-    * In the window that came up, under the section_ **User variables for**_, click on the New and add **JAVA\_HOME **as the the variable and the path as the value
+    * Search for **Environment Variables** from the Desktop. If that cannot be done, navigate to Control Panel 🡒 System and Security 🡒 System 🡒 \(click on\) Advanced System Settings 🡒 Advanced \(tab\) 🡒 \(click on\) Environment Variables 
+    * In the window that came up, under the section_ _**User variables for**, click on the New and add **JAVA\_HOME **as the the variable and the path as the value
 
 * `bin` folder of Java home \(JAVA\_HOME\) is on the path.
 
@@ -26,9 +26,9 @@
 
   * On Windows
 
-    * Following the same steps as above for JAVA\_HOME but this time as the last step in the window that got launched, work with the section titled _**System Variables**_. In that section find the variable by the name **Path** and click open it
+    * Following the same steps as above for JAVA\_HOME but this time as the last step in the window that got launched, work with the section titled **System Variables**. In that section find the variable by the name **Path** and click open it
 
-    * Edit the value by prepending **`%JAVA_HOME%\bin;`** to the beginning of the line
+    * Edit the value by prepending `%JAVA_HOME%\bin;` to the beginning of the line
 
 * Verify the setup by running the command `java -version` on the command-line. On Windows, you have to launch a new command-line session.
 
@@ -43,7 +43,7 @@
     export M2_HOME=/usr/share/maven
     ```
 
-  * On Windows, follow the same steps as for JAVA_\__HOME and this time use the varibale_ _M2_\__HOME and set value to the maven's installed path 
+  * On Windows, follow the same steps as for JAVA_\_\_HOME and this time use the varibale_ _M2_\_\_HOME and set value to the maven's installed path
 
 * `bin` folder of Maven's home \(M2\_HOME\) is on the path:
 
@@ -53,7 +53,7 @@
     export PATH=$M2_HOME/bin:$PATH
     ```
 
-  * On Windows, follow the same steps as you followed to put the `%JAVA_HOME%\bin` on the path 
+  * On Windows, follow the same steps as you followed to put the `%JAVA_HOME%\bin` on the path
 
 * Verify the setup by running the command `mvn -version` on the command-line. On Windows, you have to launch a new command-line session.
 
