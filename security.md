@@ -157,11 +157,11 @@ The steps for preparing the main class \(JDGRemoteClientConsoleApp.java\) is pre
 
 5. Try changing the username/password in the code for the CacheManager configuration to see the behavior of the client execution
 
-| Username | Password | Type of User | Group |
-| :--- | :--- | :--- | :--- |
-| dgreader | dgreader1! | application | reader |
-| dgwriter | dgwriter1! | application | writer |
-| admin | redhat1! | management | admin |
+| Username | Password   | Type of User | Group  |
+| :---     | :---       | :---         | :---   |
+| dgreader | dgreader1! | application  | reader |
+| dgwriter | dgwriter1! | application  | writer |
+| admin    | redhat1!   | management   | admin  |
 
 
 
