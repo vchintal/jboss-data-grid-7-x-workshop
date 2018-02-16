@@ -20,4 +20,5 @@
 * [Security](security.md)
   * [Embedded Mode](security.md#embedded-mode)
   * [Client-Server Mode](security.md#client-server-mode)
+* [JDG on OpenShift](jdg-on-openshift.md)
 
