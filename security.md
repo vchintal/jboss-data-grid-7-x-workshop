@@ -122,7 +122,7 @@ The steps for preparing the main class \(JDGRemoteClientConsoleApp.java\) is pre
    }
    ```
 
-3. We will now create the following users (shown at the end of the page) by updating the `.properties` files in `src/main/resources/domain/configuration` 
+3. We will now create the following users \(shown at the end of the page\) by updating the `.properties` files in `src/main/resources/domain/configuration`
 
    If you were to set these users by hand you would run the following commands:
 
@@ -158,7 +158,7 @@ The steps for preparing the main class \(JDGRemoteClientConsoleApp.java\) is pre
 5. Try changing the username/password in the code for the CacheManager configuration to see the behavior of the client execution
 
 | Username | Password | Type of User | Group |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | dgreader | dgreader1! | application | reader |
 | dgwriter | dgwriter1! | application | writer |
 | admin | redhat1! | management | admin |
