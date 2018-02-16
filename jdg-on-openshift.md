@@ -35,9 +35,11 @@ TODO: List all the ways OpenShift can be started locally
    ```
 
 6. Use the eap-service-account in the myproject namespace
+
    ```
    oc policy add-role-to-user view system:serviceaccount:$(oc project -q):eap-service-account -n $(oc project -q)
    ```
+
 7. Log back in as **developer** 
    ```
    oc login -u developer
@@ -52,7 +54,9 @@ TODO: List all the ways OpenShift can be started locally
    oc new-app vchintal/s2i-java~https://github.com/vchintal/openshift-hotrod-console-client.git
    ```
 
-   > NOTE: The last step runs a bit long as its doing Source-to-Image in OpenShift. What would be ideal is that image be build locally and then pushed to OpenShift so that there is no need for a build in OpenShift. Hence this step will updated soon.
+   > NOTE: The last step runs a bit long as its doing Source-to-Image in OpenShift. Once built the image is pushed onto your local docker repository. So the next time you can use the command like **`oc new-app --docker-image=172.30.1.1:5000/myproject/openshift-hotrod-console-client:latest`** to deploy the image if for some reason you had to restart the Openshift server (locally)
+   
+  >What would be ideal is that image be build locally and then pushed to OpenShift so that there is no need for a build in OpenShift. Hence this step will updated soon.
 
 10. Verify the cache statistcs by visting the JDG POD and looking at the **Java Console** in the Details tab. Navigate to jboss.datagrid-infinispan  🡒 Cache  🡒 default\(dist\_sync\)  🡒 Clustered  🡒 Statistics and look at the_ Number of entries_
 
