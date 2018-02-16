@@ -122,14 +122,8 @@ The steps for preparing the main class \(JDGRemoteClientConsoleApp.java\) is pre
    }
    ```
 
-3. We will now create the following users by updating the `.properties` files in `src/main/resources/domain/configuration`
-   
-   Username | Password | Type of User | Group 
-   --- | --- | --- | --- 
-   dgreader | dgreader1! | application | reader 
-   dgwriter | dgwriter1! | application | writer 
-   admin | redhat1! | management | admin 
-   
+3. We will now create the following users (shown at the end of the page) by updating the `.properties` files in `src/main/resources/domain/configuration` 
+
    If you were to set these users by hand you would run the following commands:
 
    ```sh
@@ -162,6 +156,12 @@ The steps for preparing the main class \(JDGRemoteClientConsoleApp.java\) is pre
 4. Restart the JDG server after your updates and then continue to update the main class such that you get a handle on the `secureCache` and run program by pumping in several entries into the cache
 
 5. Try changing the username/password in the code for the CacheManager configuration to see the behavior of the client execution
+
+| Username | Password | Type of User | Group |
+| --- | --- | --- | --- |
+| dgreader | dgreader1! | application | reader |
+| dgwriter | dgwriter1! | application | writer |
+| admin | redhat1! | management | admin |
 
 
 
