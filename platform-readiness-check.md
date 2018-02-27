@@ -43,7 +43,7 @@
     export M2_HOME=/usr/share/maven
     ```
 
-  * On Windows, follow the same steps as for JAVA_\_\_HOME and this time use the varibale_ \_M2_\_\_HOME and set value to the maven's installed path
+  * On Windows, follow the same steps as for JAVA\_HOME and this time use the variable_ _M2\_HOME and set value to the maven's installed path
 
 * `bin` folder of Maven's home \(M2\_HOME\) is on the path:
 
