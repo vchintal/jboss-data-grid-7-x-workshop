@@ -52,7 +52,7 @@ Setup the JDG server in Domain mode
    :reload-servers
    ```
 
-2. Ensure that no JDG is running with jpsand run the command `mvn wildfly:run` in the root of the project
+2. Ensure that no JDG is running with jpsand run the command `mvn wildfly:start` in the root of the project
 
 3. Run the command `mvn wildfly:execute-commands` to execute the CLI commands we placed in the file
 
@@ -157,11 +157,11 @@ The steps for preparing the main class \(JDGRemoteClientConsoleApp.java\) is pre
 
 5. Try changing the username/password in the code for the CacheManager configuration to see the behavior of the client execution
 
-| Username | Password   | Type of User | Group  |
-| :---     | :---       | :---         | :---   |
-| dgreader | dgreader1! | application  | reader |
-| dgwriter | dgwriter1! | application  | writer |
-| admin    | redhat1!   | management   | admin  |
+| Username | Password | Type of User | Group |
+| :--- | :--- | :--- | :--- |
+| dgreader | dgreader1! | application | reader |
+| dgwriter | dgwriter1! | application | writer |
+| admin | redhat1! | management | admin |
 
 
 

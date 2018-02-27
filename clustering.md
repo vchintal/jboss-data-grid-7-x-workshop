@@ -102,7 +102,7 @@ Follow the steps below to setup the project further:
    /profile=clustered/subsystem=datagrid-infinispan/cache-container=clustered/replicated-cache=replCache:add(configuration=replicated)
    /profile=clustered/subsystem=datagrid-infinispan/cache-container=clustered/distributed-cache=distCache:add(configuration=distributed)
    ```
-2. Ensure that no JDG is running with `jps` and run the command `mvn wildfly:run` in the root of the project
+2. Ensure that no JDG is running with `jps` and run the command `mvn wildfly:start` in the root of the project
 3. Run the command `mvn wildfly:execute-commands` to execute the CLI commands we placed in the file
 4. Now leave the server running
 

@@ -13,7 +13,7 @@ In our lab we will listen to both kind of events:
 1. Cluster view \(Cache Manager\) events that let us know if a node joined or left the cluster
 2. Entries added \(Cache\) event, that lets us know what entries got added to the cache
 
-Below is the way one can attach a listener to a cache or to a cacheManager 
+Below is the way one can attach a listener to a cache or to a cacheManager
 
 ```
 // Add listener to a cache 
@@ -156,7 +156,7 @@ Follow the steps below to setup the project further:
    /profile=clustered/subsystem=datagrid-infinispan/cache-container=clustered/replicated-cache=listenerCache:add(configuration=listener)
    :reload-servers
    ```
-2. Ensure that no JDG is running with `jps` and run the command `mvn wildfly:run` in the root of the project
+2. Ensure that no JDG is running with `jps` and run the command `mvn wildfly:start` in the root of the project
 3. Run the command `mvn wildfly:execute-commands` to execute the CLI commands we placed in the file
 4. Now leave the server running
 
