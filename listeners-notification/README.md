@@ -1,10 +1,10 @@
-# Listeners and Notification
+# Listeners/Notification
 
 In this section we will see how to attach a listener class to listen to cache and/or cacheManager events. Visit here for [additional/official documentation](https://access.redhat.com/documentation/en-us/red_hat_jboss_data_grid/7.1/html-single/developer_guide/#the_notification_listener_api) on Listeners and Events .
 
 ## Embedded Mode {#embedded-mode}
 
-To work on this lab, either use the project setup during the Initial Setup or create a new project based on the same **infinispan-embedded-archetype ** archetype.
+To work on this lab, either use the project setup during the Initial Setup or create a new project based on the same **infinispan-embedded-archetype**  archetype.
 
 Testing listening of cache/cacheManager events cannot with done easily with simple code as you would have to listen and at the same time need another process put entries into the cache. Also, in Embedded mode the listening of events happens locally, that is, the listener only captures the updates happening to the local data container.
 
@@ -15,7 +15,7 @@ In our lab we will listen to both kind of events:
 
 Below is the way one can attach a listener to a cache or to a cacheManager
 
-```
+```text
 // Add listener to a cache 
 cache.addListener(new ClusterListener());
 
@@ -92,7 +92,7 @@ public class JDGConsoleApp {
 }
 ```
 
-### ** ClusterListener.java**
+###  **ClusterListener.java**
 
 ```java
 import java.util.concurrent.CountDownLatch;
@@ -139,7 +139,7 @@ public class ClusterListener {
 
 ### Execution
 
-Using JBDS, run 3 instances of the **JDGConsoleApp **and notice the output on their consoles
+Using JBDS, run 3 instances of the **JDGConsoleApp** and notice the output on their consoles
 
 ## Client-Server Mode {#client-server-mode}
 
@@ -150,12 +150,14 @@ Follow the steps below to setup the project further:
 ### Setup the JDG server in Domain mode {#setup-the-jdg-server-in-domain-mode}
 
 1. Create a new file`commands.cli` in `src/main/resources` folder and paste the contents as shown below:
-   ```
+
+   ```text
    /profile=clustered/subsystem=datagrid-infinispan/cache-container=clustered/configurations=CONFIGURATIONS/replicated-cache-configuration=listener:add(mode="SYNC")
    /profile=clustered/subsystem=datagrid-infinispan/cache-container=clustered/configurations=CONFIGURATIONS/replicated-cache-configuration=listener/compatibility=COMPATIBILITY:add(enabled=true)
    /profile=clustered/subsystem=datagrid-infinispan/cache-container=clustered/replicated-cache=listenerCache:add(configuration=listener)
    :reload-servers
    ```
+
 2. Ensure that no JDG is running with `jps` and run the command `mvn wildfly:start` in the root of the project
 3. Run the command `mvn wildfly:execute-commands` to execute the CLI commands we placed in the file
 4. Now leave the server running
@@ -222,6 +224,4 @@ public class ClusteredClientListener {
     }
 }
 ```
-
-
 

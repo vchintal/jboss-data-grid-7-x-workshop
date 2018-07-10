@@ -13,7 +13,7 @@ In this lab we will try to different combination of cache configuration invoving
 
 ## Embedded Mode
 
-To work on this lab, either use the project setup during the Initial Setup or create a new project based on the same ** infinispan-embedded-archetype ** archetype.
+To work on this lab, either use the project setup during the Initial Setup or create a new project based on the same  **infinispan-embedded-archetype**  archetype.
 
 As a first step lets alter the way in which the cache is configured. As before it depends on which approach we take, programmatic or declarative.
 
@@ -40,7 +40,7 @@ Configuration config = new ConfigurationBuilder()
 
 Open up the `infinispan.xml` file in the `src/main/resources` folder and overwrite it completely with the following XML snippet
 
-```xml
+```markup
 <infinispan xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="urn:infinispan:config:8.4 http://www.infinispan.org/schemas/infinispan-config-8.4.xsd"
     xmlns="urn:infinispan:config:8.4">
@@ -81,9 +81,9 @@ Use **JConsole** to peek into the guts of the application to see how many entrie
 
 #### Expected Outcome
 
-* No Eviction** ** - There will be 100 entries in the cache and 100 entries stored in the store
-* Eviction but no Passivation** - ** There will be 50 entries in the cache and 100 entries stored in the store
-* Eviction with Passivation** ** - There will be 50 entries in the cache and the rest \(mutually exclusive set\) in the store
+* No Eviction **** - There will be 100 entries in the cache and 100 entries stored in the store
+* Eviction but no Passivation **-**  There will be 50 entries in the cache and 100 entries stored in the store
+* Eviction with Passivation **** - There will be 50 entries in the cache and the rest \(mutually exclusive set\) in the store
 
 ## Client-Server Mode
 
@@ -94,7 +94,8 @@ Follow the steps below to setup the project further:
 ### Setup the JDG server in Domain mode {#setup-the-jdg-server-in-domain-mode}
 
 1. Create a new file `commands.cli` in `src/main/resources` folder and paste the contents as shown below. This will create thee caches: persistentCache \(no eviction\), persistentCacheEviction and persistentPassivatedCache
-   ```
+
+   ```text
    /profile=clustered/subsystem=datagrid-infinispan/cache-container=clustered/distributed-cache=persistentCache:add(configuration=persistent-file-store)
    /profile=clustered/subsystem=datagrid-infinispan/cache-container=clustered/configurations=CONFIGURATIONS/distributed-cache-configuration=persistent-file-store-eviction:add(mode=SYNC,start=EAGER)
    /profile=clustered/subsystem=datagrid-infinispan/cache-container=clustered/configurations=CONFIGURATIONS/distributed-cache-configuration=persistent-file-store-eviction/eviction=EVICTION:add(strategy="LRU",size="10000",type="COUNT")
@@ -103,6 +104,7 @@ Follow the steps below to setup the project further:
    /profile=clustered/subsystem=datagrid-infinispan/cache-container=clustered/distributed-cache=persistentPassivatedCache:add(configuration=persistent-file-store-passivation)
    :reload-servers
    ```
+
 2. Ensure that no JDG is running with `jps`and run the command `mvn wildfly:start` in the root of the project
 3. Run the command `mvn wildfly:execute-commands` to execute the CLI commands we placed in the file
 4. Now leave the server running
@@ -128,8 +130,6 @@ for (String cacheName : cacheNames) {
 }
 ```
 
-#### 
-
 #### Expected Outcome
 
 * No Eviction -  There will be 10500 entries in the `persistentCache` and 10500 entries stored in the store
@@ -142,6 +142,4 @@ Navigate to the folders \(if you have only two servers up\) to find all the .dat
 
 1. src/main/resources/domain/servers/server-one/data/datagrid-infinispan/clustered
 2. src/main/resources/domain/servers/server-two/data/datagrid-infinispan/clustered
-
-
 

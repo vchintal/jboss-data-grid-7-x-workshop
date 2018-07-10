@@ -1,4 +1,4 @@
-# JBoss Data Grid 7.x Workshop {#introduction}
+# Introduction and Agenda
 
 JBoss Data Grid \(JDG in short\) is an In-Memory Enterprise Caching solution from Red Hat, Inc. JDG is :
 
@@ -10,7 +10,7 @@ JBoss Data Grid \(JDG in short\) is an In-Memory Enterprise Caching solution fro
 * Distributed execution of tasks \(such a Map/Reduce\) over cluster content ensuring the tasks are migrated and executed on JDG instances where the data resides
 * and much more ...
 
-With this workshop you will gain hands-on experience developing applications which use **JDG** for its caching needs. This workshop covers most of the common and major features of **JDG**,  however it doesn't cover all of them and the content can change without notice.
+With this workshop you will gain hands-on experience developing applications which use **JDG** for its caching needs. This workshop covers most of the common and major features of **JDG**, however it doesn't cover all of them and the content can change without notice.
 
 ## Workshop Agenda {#workshop-agenda}
 
@@ -24,6 +24,4 @@ With this workshop you will gain hands-on experience developing applications whi
 8. Querying 
 9. Apache Camel with JDG
 10. JDG on Openshift 3.x
-
-
 

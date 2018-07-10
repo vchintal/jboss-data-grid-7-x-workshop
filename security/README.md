@@ -37,7 +37,7 @@ Setup the JDG server in Domain mode
 
 1. Create a new file `commands.cli` in `src/main/resources` folder and paste the contents as shown below. This will create thee caches: persistentCache \(no eviction\), persistentCacheEviction and persistentPassivatedCache
 
-   ```sh
+   ```bash
    /profile=clustered/subsystem=datagrid-infinispan/cache-container=clustered/security=SECURITY:add()
    /profile=clustered/subsystem=datagrid-infinispan/cache-container=clustered/security=SECURITY/authorization=AUTHORIZATION:add(mapper=org.infinispan.security.impl.IdentityRoleMapper)
    /profile=clustered/subsystem=datagrid-infinispan/cache-container=clustered/security=SECURITY/authorization=AUTHORIZATION/role=writer:add(name=writer,permissions=[WRITE,READ,BULK_WRITE,BULK_READ])
@@ -53,9 +53,7 @@ Setup the JDG server in Domain mode
    ```
 
 2. Ensure that no JDG is running with jpsand run the command `mvn wildfly:start` in the root of the project
-
 3. Run the command `mvn wildfly:execute-commands` to execute the CLI commands we placed in the file
-
 4. Now leave the server running
 
 ### Rest of the code and execution {#rest-of-the-code-and-execution}
@@ -126,7 +124,7 @@ The steps for preparing the main class \(JDGRemoteClientConsoleApp.java\) is pre
 
    If you were to set these users by hand you would run the following commands:
 
-   ```sh
+   ```bash
    $JDG_HOME/bin/add-user.sh -a -u dgreader -p dgreader1! -g reader
    $JDG_HOME/bin/add-user.sh -a -u dgwriter -p dgwriter1! -g writer
    $JDG_HOME/bin/add-user.sh -u admin -p redhat1! -g admin
@@ -135,26 +133,32 @@ The steps for preparing the main class \(JDGRemoteClientConsoleApp.java\) is pre
    Since we are not directly working with the JDG server we would update the following files in the folder `src/main/resources/domain/configuration`
 
    1. application-users.properties by adding the following lines
+
       ```text
       dgreader=ea5f219eb5157a4fe4b3579884ce00fd
       dgwriter=faea545a8451518ccef37ff983a40e18
       ```
+
    2. application-roles.properties by adding the following lines
+
       ```text
       dgreader=reader
       dgwriter=writer
       ```
+
    3. mgmt-users.properties by adding the following lines
+
       ```text
       admin=2851c15b7f819875fdb05f0bd8666564
       ```
+
    4. mgmt-groups.properties by adding the following lines
+
       ```text
       admin=admin
       ```
 
 4. Restart the JDG server after your updates and then continue to update the main class such that you get a handle on the `secureCache` and run program by pumping in several entries into the cache
-
 5. Try changing the username/password in the code for the CacheManager configuration to see the behavior of the client execution
 
 | Username | Password | Type of User | Group |
@@ -162,6 +166,4 @@ The steps for preparing the main class \(JDGRemoteClientConsoleApp.java\) is pre
 | dgreader | dgreader1! | application | reader |
 | dgwriter | dgwriter1! | application | writer |
 | admin | redhat1! | management | admin |
-
-
 
