@@ -4,7 +4,7 @@ To work on this lab, either use the project setup during the Initial Setup or cr
 
 Follow the steps below to setup the project further:
 
-### Setup the JDG server in Domain mode {#setup-the-jdg-server-in-domain-mode}
+## Setup the JDG server in Domain mode {#setup-the-jdg-server-in-domain-mode}
 
 1. Create a new file `commands.cli` in `src/main/resources` folder and paste the contents as shown below. This will create thee caches: persistentCache \(no eviction\), persistentCacheEviction and persistentPassivatedCache
 
@@ -22,7 +22,7 @@ Follow the steps below to setup the project further:
 3. Run the command `mvn wildfly:execute-commands` to execute the CLI commands we placed in the file
 4. Now leave the server running
 
-### Prepare the main class and run it {#prepare-the-main-class-and-run-it}
+## Prepare the main class and run it {#prepare-the-main-class-and-run-it}
 
 The steps for preparing the main class is pretty straighforward:
 
@@ -43,13 +43,13 @@ for (String cacheName : cacheNames) {
 }
 ```
 
-#### Expected Outcome
+### Expected Outcome
 
 * No Eviction -  There will be 10500 entries in the `persistentCache` and 10500 entries stored in the store
 * Eviction but no Passivation  - There will be 10000 entries in the `persistentCacheEviction`  and 10500 entries stored in the store
 * Eviction with Passivation  - There will be 10000 entries in the `persistentPassivatedCache` and the rest \(mutually exclusive set\) 500 in the store
 
-#### Where to note the size of the store\(s\) ?
+### Where to note the size of the store\(s\) ?
 
 Navigate to the folders \(if you have only two servers up\) to find all the .dat files. Their size gives you an approximate feel for how many entries are store in it.
 

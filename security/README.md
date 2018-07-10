@@ -7,3 +7,4 @@ Security in JBoss Data Grid comes in many flavors:
 * In Client-Server Mode, securing the cluster \(JGroups\) communication with TLS and ensuring that only authorized nodes can join the cluster
 
 In this lab we will be focussing on how to secure Cache/CacheManager with RBAC
+

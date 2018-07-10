@@ -40,7 +40,7 @@ Setup the JDG server in Domain mode
 3. Run the command `mvn wildfly:execute-commands` to execute the CLI commands we placed in the file
 4. Now leave the server running
 
-### Rest of the code and execution {#rest-of-the-code-and-execution}
+## Rest of the code and execution {#rest-of-the-code-and-execution}
 
 The steps for preparing the main class \(JDGRemoteClientConsoleApp.java\) is pretty straighforward:
 

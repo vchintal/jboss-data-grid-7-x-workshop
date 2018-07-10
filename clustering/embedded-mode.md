@@ -42,8 +42,8 @@ Open up the`infinispan.xml`file in the`src/main/resources`folder and overwrite i
 
 ```markup
 <infinispan xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="urn:infinispan:config:8.4 http://www.infinispan.org/schemas/infinispan-config-8.4.xsd"
-    xmlns="urn:infinispan:config:8.4">
+    xsi:schemaLocation="urn:infinispan:config:8.5 http://www.infinispan.org/schemas/infinispan-config-8.5.xsd"
+    xmlns="urn:infinispan:config:8.5">
     <jgroups>
         <stack-file name="external-file" path="jgroups-udp.xml" />
     </jgroups>
