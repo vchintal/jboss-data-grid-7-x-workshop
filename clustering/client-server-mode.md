@@ -7,7 +7,7 @@ Follow the steps below to setup the project further:
 ### Setup the JDG server in Domain mode {#setup-the-jdg-server-in-domain-mode}
 
 1. Create a new file `commands.cli` in `src/main/resources` folder and paste the contents as shown below:
-2. ```bash
+   ```bash
    /profile=clustered/subsystem=datagrid-infinispan/cache-container=clustered/configurations=CONFIGURATIONS/distributed-cache-configuration=distributed:add(mode="SYNC")
    /profile=clustered/subsystem=datagrid-infinispan/cache-container=clustered/replicated-cache=replCache:add(configuration=replicated)
    /profile=clustered/subsystem=datagrid-infinispan/cache-container=clustered/distributed-cache=distCache:add(configuration=distributed)     

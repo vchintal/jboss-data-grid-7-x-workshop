@@ -106,9 +106,7 @@ The steps for preparing the main class \(JDGRemoteClientConsoleApp.java\) is pre
 
 3. We will now create the following users \(shown at the end of the page\) by updating the `.properties` files in `src/main/resources/domain/configuration`
 
-   ```text
-   NOTE: This has already been done for you. The below mentioned steps are only for the sake of documentation.
-   ```
+   > NOTE: This has already been done for you. The below mentioned steps are only for the sake of documentation.
 
    If you were to set these users by hand you would run the following commands:
 

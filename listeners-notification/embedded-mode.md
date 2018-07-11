@@ -11,7 +11,7 @@ In our lab we will listen to both kind of events:
 
 Below is the way one can attach a listener to a cache or to a cacheManager
 
-```text
+```java
 // Add listener to a cache 
 cache.addListener(new ClusterListener());
 

@@ -9,29 +9,29 @@ As a first step lets alter the way in which the cache is configured. As before i
 Copy-Paste the entire definition of the configuration and overwrite the one in the class file
 
 ```java
-    // Use a path on your filesystem
-    System.setProperty("cacheStorePath", "/home/vchintal/jdg");
+// Use a path on your filesystem
+System.setProperty("cacheStorePath", "/home/vchintal/jdg");
 
-    GlobalConfiguration globalConfig = new GlobalConfigurationBuilder().transport()
-            .defaultTransport()
-            .build();
-    
-    // Build Configuration for DefaultCacheManager via Fluent API
-    Configuration cacheConfig = new ConfigurationBuilder()
-            .clustering()
-            .cacheMode(CacheMode.DIST_SYNC)
-            .memory()
-                .storageType(StorageType.OBJECT)
-                .size(50)
-            .persistence()
-                //.passivation(true)
-                .addSingleFileStore()
-                    .maxEntries(5000)
-                    .location(System.getProperty("cacheStorePath"))
-            .build();
-    
-    // Use the Configuration to instantiate CacheManager
-    EmbeddedCacheManager cacheManager = new DefaultCacheManager(globalConfig,cacheConfig);
+GlobalConfiguration globalConfig = new GlobalConfigurationBuilder().transport()
+        .defaultTransport()
+        .build();
+
+// Build Configuration for DefaultCacheManager via Fluent API
+Configuration cacheConfig = new ConfigurationBuilder()
+        .clustering()
+        .cacheMode(CacheMode.DIST_SYNC)
+        .memory()
+            .storageType(StorageType.OBJECT)
+            .size(50)
+        .persistence()
+            //.passivation(true)
+            .addSingleFileStore()
+                .maxEntries(5000)
+                .location(System.getProperty("cacheStorePath"))
+        .build();
+
+// Use the Configuration to instantiate CacheManager
+EmbeddedCacheManager cacheManager = new DefaultCacheManager(globalConfig,cacheConfig);
 ```
 
 #### Declaratively {#declaratively}

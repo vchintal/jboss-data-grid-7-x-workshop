@@ -8,7 +8,7 @@ Follow the steps below to setup the project further:
 
 1. Create a new file `commands.cli` in `src/main/resources` folder and paste the contents as shown below. This will create thee caches: persistentCache \(no eviction\), persistentCacheEviction and persistentPassivatedCache
 
-   ```text
+   ```bash
    /profile=clustered/subsystem=datagrid-infinispan/cache-container=clustered/distributed-cache=persistentCache:add(configuration=persistent-file-store)
    /profile=clustered/subsystem=datagrid-infinispan/cache-container=clustered/configurations=CONFIGURATIONS/distributed-cache-configuration=persistent-file-store-eviction:add(mode=SYNC,start=EAGER)
    /profile=clustered/subsystem=datagrid-infinispan/cache-container=clustered/configurations=CONFIGURATIONS/distributed-cache-configuration=persistent-file-store-eviction/memory=OBJECT:add(size=50, strategy=LRU)
