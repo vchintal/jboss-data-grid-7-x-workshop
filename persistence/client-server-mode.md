@@ -11,7 +11,7 @@ Follow the steps below to setup the project further:
    ```text
    /profile=clustered/subsystem=datagrid-infinispan/cache-container=clustered/distributed-cache=persistentCache:add(configuration=persistent-file-store)
    /profile=clustered/subsystem=datagrid-infinispan/cache-container=clustered/configurations=CONFIGURATIONS/distributed-cache-configuration=persistent-file-store-eviction:add(mode=SYNC,start=EAGER)
-   /profile=clustered/subsystem=datagrid-infinispan/cache-container=clustered/configurations=CONFIGURATIONS/distributed-cache-configuration=persistent-file-store-eviction/eviction=EVICTION:add(strategy="LRU",size="10000",type="COUNT")
+   /profile=clustered/subsystem=datagrid-infinispan/cache-container=clustered/configurations=CONFIGURATIONS/distributed-cache-configuration=persistent-file-store-eviction/memory=OBJECT:add(size=50, strategy=LRU)
    /profile=clustered/subsystem=datagrid-infinispan/cache-container=clustered/configurations=CONFIGURATIONS/distributed-cache-configuration=persistent-file-store-eviction/file-store=FILE_STORE:add(shared=false,passivation=false,fetch-state=true)
    /profile=clustered/subsystem=datagrid-infinispan/cache-container=clustered/distributed-cache=persistentCacheEviction:add(configuration=persistent-file-store-eviction)
    /profile=clustered/subsystem=datagrid-infinispan/cache-container=clustered/distributed-cache=persistentPassivatedCache:add(configuration=persistent-file-store-passivation)
@@ -20,14 +20,14 @@ Follow the steps below to setup the project further:
 
 2. Ensure that no JDG is running with `jps`and run the command `mvn wildfly:start` in the root of the project
 3. Run the command `mvn wildfly:execute-commands` to execute the CLI commands we placed in the file
-4. Now leave the server running
+4. Execute the client application code as described below
 
 ## Prepare the main class and run it {#prepare-the-main-class-and-run-it}
 
 The steps for preparing the main class is pretty straighforward:
 
 1. Get handle on each of the three above mentioned caches 
-2. Put 10500 entries into each 
+2. Put 10500 entries into each cache
 
 For the sake of convenience the code is pasted below. Copy-paste the code between cacheManager instantiation and its stop.
 
@@ -55,4 +55,9 @@ Navigate to the folders \(if you have only two servers up\) to find all the .dat
 
 1. src/main/resources/domain/servers/server-one/data/datagrid-infinispan/clustered
 2. src/main/resources/domain/servers/server-two/data/datagrid-infinispan/clustered
+
+### Shutdown Servers
+
+Run the command `mvn wildfly:shutdown` to shutdown JDG servers running in Domain mode.
+
 

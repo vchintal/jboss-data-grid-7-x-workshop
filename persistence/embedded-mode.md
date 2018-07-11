@@ -9,18 +9,29 @@ As a first step lets alter the way in which the cache is configured. As before i
 Copy-Paste the entire definition of the configuration and overwrite the one in the class file
 
 ```java
-Configuration config = new ConfigurationBuilder()
-        .clustering()
-        .cacheMode(CacheMode.DIST_SYNC)
-        .eviction()
-            .size(50)
-            .strategy(EvictionStrategy.LIRS)
-            .type(EvictionType.COUNT)
-        .persistence()
-            .addSingleFileStore()
-                .maxEntries(5000)
-                .location(System.getProperty("cacheStorePath"))
-        .build();
+    // Use a path on your filesystem
+    System.setProperty("cacheStorePath", "/home/vchintal/jdg");
+
+    GlobalConfiguration globalConfig = new GlobalConfigurationBuilder().transport()
+            .defaultTransport()
+            .build();
+    
+    // Build Configuration for DefaultCacheManager via Fluent API
+    Configuration cacheConfig = new ConfigurationBuilder()
+            .clustering()
+            .cacheMode(CacheMode.DIST_SYNC)
+            .memory()
+                .storageType(StorageType.OBJECT)
+                .size(50)
+            .persistence()
+                //.passivation(true)
+                .addSingleFileStore()
+                    .maxEntries(5000)
+                    .location(System.getProperty("cacheStorePath"))
+            .build();
+    
+    // Use the Configuration to instantiate CacheManager
+    EmbeddedCacheManager cacheManager = new DefaultCacheManager(globalConfig,cacheConfig);
 ```
 
 #### Declaratively {#declaratively}
@@ -29,8 +40,8 @@ Open up the `infinispan.xml` file in the `src/main/resources` folder and overwri
 
 ```xml
 <infinispan xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="urn:infinispan:config:8.4 http://www.infinispan.org/schemas/infinispan-config-8.4.xsd"
-    xmlns="urn:infinispan:config:8.4">
+    xsi:schemaLocation="urn:infinispan:config:8.5 http://www.infinispan.org/schemas/infinispan-config-8.5.xsd"
+    xmlns="urn:infinispan:config:8.5">
     <jgroups>
         <stack-file name="external-file" path="jgroups-udp.xml" />
     </jgroups>
@@ -40,7 +51,9 @@ Open up the `infinispan.xml` file in the `src/main/resources` folder and overwri
         <distributed-cache-configuration
             name="persistentCacheConfiguration" mode="SYNC"
             statistics-available="true" statistics="true">
-            <eviction max-entries="50" type="COUNT" />
+            <memory>
+                <object size="50"/>
+            </memory>
             <persistence passivation="true">
                 <file-store path="${cacheStorePath}" max-entries="5000" />
             </persistence>

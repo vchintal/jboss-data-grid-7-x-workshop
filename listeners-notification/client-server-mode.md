@@ -30,7 +30,7 @@ The steps for preparing the main class \(JDGRemoteClientConsoleApp.java\) is pre
 
 #### Adding entries into the cache
 
-Using a REST tool such as [RESTClient](https://addons.mozilla.org/en-US/firefox/addon/restclient/) submit a cache put with the following settings and verify the output:
+Using a REST tool such as [RESTClient](https://addons.mozilla.org/en-US/firefox/addon/restclient/) submit a cache put with the following settings and verify the following output. If the REST interface requires authentication use `dgreader` for username and `dgreader1!` for password.
 
 * URL: [http://127.0.0.1:8080/rest/listenerCache/1](http://127.0.0.1:8080/rest/listenerCache/1)
 * Method: **PUT**
@@ -82,4 +82,6 @@ public class ClusteredClientListener {
 }
 ```
 
+### Shutdown Servers
 
+Run the command `mvn wildfly:shutdown` to shutdown JDG servers running in Domain mode.

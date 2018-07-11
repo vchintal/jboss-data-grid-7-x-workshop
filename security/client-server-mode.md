@@ -30,10 +30,10 @@ Setup the JDG server in Domain mode
    /profile=clustered/subsystem=datagrid-infinispan/cache-container=clustered/configurations=CONFIGURATIONS/distributed-cache-configuration=secure-cache-configuration:add()
    /profile=clustered/subsystem=datagrid-infinispan/cache-container=clustered/configurations=CONFIGURATIONS/distributed-cache-configuration=secure-cache-configuration/security=SECURITY:add()
    /profile=clustered/subsystem=datagrid-infinispan/cache-container=clustered/configurations=CONFIGURATIONS/distributed-cache-configuration=secure-cache-configuration/security=SECURITY/authorization=AUTHORIZATION:add(roles=[reader,writer],enabled=true)
-   /profile=clustered/subsystem=datagrid-infinispan/cache-container=clustered/distributed-cache=secureCache:add(configuration=secure-cache-configuration)
    /profile=clustered/subsystem=datagrid-infinispan-endpoint/hotrod-connector=hotrod-connector/authentication=AUTHENTICATION:add(security-realm=ApplicationRealm)
    /profile=clustered/subsystem=datagrid-infinispan-endpoint/hotrod-connector=hotrod-connector/authentication=AUTHENTICATION/sasl=SASL:add(mechanisms=[DIGEST-MD5],qop=[auth],server-name=hotrodserver)
-   :reload-servers
+   :reload-servers(blocking=true)
+   /profile=clustered/subsystem=datagrid-infinispan/cache-container=clustered/distributed-cache=secureCache:add(configuration=secure-cache-configuration)
    ```
 
 2. Ensure that no JDG is running with jpsand run the command `mvn wildfly:start` in the root of the project
