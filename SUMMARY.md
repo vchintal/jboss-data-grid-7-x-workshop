@@ -20,5 +20,8 @@
 * [Security](security/README.md)
   * [Embedded Mode](security/embedded-mode.md)
   * [Client-Server Mode](security/client-server-mode.md)
+* [Querying](querying/README.md)
+  * [Embedded Mode](querying/embedded-mode.md)
+  * [Client-Server Mode](querying/client-server-mode.md)
 * [JDG on OpenShift](jdg-on-openshift.md)
 
